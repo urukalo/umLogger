@@ -1,0 +1,18 @@
+{
+    "name": "vendor/umlogger",
+    "description": "Description of project umlogger.",
+    "authors": [
+        {
+            "name": "Milan Urukalo",
+            "email": "urukalo@gmail.com"
+        }
+    ],
+    "require": {
+        "psr/log": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "umLogger\\": "src/umLogger"
+        }
+    }
+}
