@@ -15,5 +15,5 @@ namespace umLogger\handlers;
 interface umHandlerInterface {
     
     public function handleLevel($level);
-    public function handle($message);
+    public function handle($message, $content);
 }

@@ -6,30 +6,28 @@ use Psr\Log\AbstractLogger;
 use Psr\Log\LogLevel;
 
 /**
- * umLogger is psr3 implemented logger 
+ * umLogger implementing PSR-3 logging interface
  *
  * @author milan
  */
 class umLogger extends AbstractLogger {
 
     private $handlers;
-    private $formatter;
+    
 
-    public function __construct(array $handlers, formaters\umFormaterInterface $formatter) {
+    public function __construct(array $handlers) {
 
         if (!is_array($handlers)) {
             $handlers[] = $handlers;
         }
-
         $this->handlers = $handlers;
-        $this->formatter = $formatter;
     }
 
     public function log($level, $message, array $context = array()) {
 
         foreach ($this->handlers as $handler) {
             if ($handler->handleLevel($level)) {
-                $handler->handle($this->formatter->formate($message, $context));
+                $handler->handle($message, $context);
             }
         }
     }

@@ -3,6 +3,7 @@
 namespace umLogger\handlers;
 
 use Psr\Log\LogLevel;
+use umLogger\formaters\umFormaterInterface;
 
 /**
  * Description of umLoggerAbstract
@@ -28,16 +29,24 @@ abstract class umHandlerAbstract implements umHandlerInterface {
     /*
      * minimal level what handler cover
      * (expmle, email handler can react only on Critical+ levels)
+     * @var string
      */
     protected $level;
+    
+    /*
+     * formatter for this handler
+     * @var umFormatterInterface
+     */
+    protected $formatter;
 
     /*
      * just set log level for instance
      * @param LogLevel
      */
 
-    public function __construct($level = LogLevel::DEBUG) {
+    public function __construct(umFormaterInterface $formatter, $level = LogLevel::DEBUG) {
         $this->level = $level;
+        $this->formatter = $formatter;
     }
 
     /*
@@ -49,4 +58,7 @@ abstract class umHandlerAbstract implements umHandlerInterface {
         return $this->levels[$level] >= $this->levels[$this->level];
     }
 
+    public function handle($message, $content) {
+        return $this->formatter->formate($message, $content);
+    }
 }

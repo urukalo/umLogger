@@ -7,14 +7,14 @@ namespace umLogger\formaters;
  *
  * @author milan
  */
-class textFormater extends umFormatterAbstract {
+class htmlFormatter extends umFormatterAbstract {
 
     public function __construct() {
         
     }
 
     public function formate($message, array $content) {
-        return parent::formate($message, $content).PHP_EOL;
+        return "<p>".parent::formate($message, $content)."</p><br>";
         
     }
 

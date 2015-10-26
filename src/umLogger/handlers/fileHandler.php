@@ -18,8 +18,10 @@ class fileHandler extends umHandlerAbstract {
         $this->filename = $filename;
     }
 
-    public function handle($message) {
-        file_put_contents($this->filename, $message . PHP_EOL, FILE_APPEND);
+    public function handle($message, $content) {
+        $data = parent::handle($message, $content);
+
+        file_put_contents($this->filename, $data, FILE_APPEND);
     }
 
     public function handleLevel($level) {

@@ -14,12 +14,15 @@ $article = new stdClass();
 $article->id = 1;
 $article->title = "New Article";
 
+$textFormater = new formaters\textFormater();
+$htmlFormater = new formaters\htmlFormatter();
+
 $handlers = array(
-    new handlers\echoHandler(), // DEBUG level handler
-    new handlers\fileHandler('logs/umLogger.log', LogLevel::EMERGENCY) // EMERGENCY handler
+    new handlers\echoHandler($htmlFormater), // DEBUG level handler
+    new handlers\fileHandler('logs/umLogger.log', $textFormater, LogLevel::EMERGENCY) // EMERGENCY handler
 );
-$formater = new formaters\textFormater();
-$umLogger = new umLogger\umLogger($handlers, $formater);
+
+$umLogger = new umLogger\umLogger($handlers);
 
 //specific call with predefined DEBUG level - only one handler will handle this
 $umLogger->logEvent("Created new article", $user, $article);
