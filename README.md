@@ -43,4 +43,16 @@ $umLogger->log(LogLevel::EMERGENCY, "[{level}]: {event} on {time} by {performer}
     "subject_id" => 5,
     'level' => strtoupper(LogLevel::EMERGENCY)
 ));
+
+$message = "[{level}]: {event} on {time} by {performer} on {subject} with id {subject_id}.";
+
+$content = array(
+    "event" => "Created new article",
+    "time" => (new DateTime())->format('Y-m-d H:i:s'),
+    "performer" => "admin",
+    "subject" => "Test article",
+    "subject_id" => 5,
+    'level' => strtoupper(LogLevel::EMERGENCY)
+);
+$umLogger->emergency($message, $content);
 ```
