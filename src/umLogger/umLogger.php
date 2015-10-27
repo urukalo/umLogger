@@ -7,7 +7,6 @@ use Psr\Log\LogLevel;
 
 /**
  * umLogger implementing PSR-3 logging interface
- *
  * @author milan
  */
 class umLogger extends AbstractLogger {
