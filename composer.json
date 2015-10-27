@@ -1,6 +1,6 @@
 {
-    "name": "vendor/umlogger",
-    "description": "Description of project umlogger.",
+    "name": "urukalo/umlogger",
+    "description": "simple logger",
     "authors": [
         {
             "name": "Milan Urukalo",
