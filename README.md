@@ -1,6 +1,6 @@
 # umLogger
 
-event logger --- testing my skills
+event logger --- testing my skills<br>
 bonus: PSR3 impl with optional handler and formatter for logs
 
 Some example data:
