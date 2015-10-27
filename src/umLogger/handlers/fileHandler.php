@@ -3,6 +3,7 @@
 namespace umLogger\handlers;
 
 use Psr\Log\LogLevel;
+use umLogger\formaters\umFormaterInterface;
 
 /**
  * Description of fileHandler
@@ -13,8 +14,8 @@ class fileHandler extends umHandlerAbstract {
 
     private $filename;
 
-    public function __construct($filename, $level = LogLevel::DEBUG) {
-        parent::__construct($level);
+    public function __construct($filename, umFormaterInterface $formatter, $level = LogLevel::DEBUG) {
+        parent::__construct($formatter, $level);
         $this->filename = $filename;
     }
 

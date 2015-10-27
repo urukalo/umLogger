@@ -14,7 +14,7 @@ class htmlFormatter extends umFormatterAbstract {
     }
 
     public function formate($message, array $content) {
-        return "<p>".parent::formate($message, $content)."</p><br>";
+        return "<p>".parent::formate($message, $content)."</p>";
         
     }
 

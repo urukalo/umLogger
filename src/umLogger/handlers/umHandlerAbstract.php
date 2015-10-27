@@ -41,6 +41,7 @@ abstract class umHandlerAbstract implements umHandlerInterface {
 
     /*
      * just set log level for instance
+     * @param umFormaterInterface
      * @param LogLevel
      */
 
@@ -58,6 +59,11 @@ abstract class umHandlerAbstract implements umHandlerInterface {
         return $this->levels[$level] >= $this->levels[$this->level];
     }
 
+    /*
+     * just ask formater to replace placeholders in message with values from content array
+     * @param string
+     * @param array
+     */
     public function handle($message, $content) {
         return $this->formatter->formate($message, $content);
     }
